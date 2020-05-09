@@ -1,8 +1,10 @@
 # Text Editor in Angular 8
+A text with for making blogs or posts using Angular and Typescript with preview feature & how to use post in the website
 
 ## PREVIEW
+Image showing the preview and look of the editor which can be furthure customized using CSS
 <div align="center">
-    <img src="./public/PREVIEW.png" width="400px"></img> 
+    <img src="./public/PREVIEW.png"></img> 
 </div>
 
 

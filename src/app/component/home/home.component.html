@@ -1,6 +1,12 @@
 <div class="container">
-    <h1 class="display-h1 test-muted mb-2">WELCOME TO TEXT EDITOR</h1>
+    <h1 class="display-h1 test-muted mb-2 mt-5">WELCOME TO TEXT EDITOR</h1>
+
     <div class="row">
-        <div class="col-sm-12 col-md-8" [innerHTML]="html_string"></div>
+        <!--our ver own and sexy text editor and content! manager! -->
+        <app-editor class="col-sm-12"></app-editor>
+        <!--this is how thet inner HTML can be used which is obtained from the backend!-->
+        <div class="col-sm-12">
+            <div [innerHTML]="html_string"></div>
+        </div>
     </div>
 </div>

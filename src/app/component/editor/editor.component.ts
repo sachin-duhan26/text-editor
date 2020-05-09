@@ -1,5 +1,5 @@
 
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ export class EditorComponent implements OnInit {
     name = 'ng2-ckeditor';
     ckeConfig: any;
     mycontent: string;
-
+    show_preview_only: Boolean = false;
     constructor() { }
     contentdata = new Content();
 
@@ -26,6 +26,7 @@ export class EditorComponent implements OnInit {
     onSubmit() {
         console.log(this.contentdata);
     }
+    toggle_full_preview_mode() { this.show_preview_only = !this.show_preview_only; }
 }
 
 class Content {

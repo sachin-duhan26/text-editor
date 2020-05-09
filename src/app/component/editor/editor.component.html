@@ -1,14 +1,31 @@
-<form role="form" #myForm="ngForm" accept-charset="UTF-8" (ngSubmit)="onSubmit()" novalidate style="margin: 30px;">
-    <div class="form-group">
-        <input autofocus autocomplete="none" type="text" name="UserName" placeholder="Enter Title" [(ngModel)]="contentdata.Title" class="form-control" required #PageContentTitle="ngModel" id="PageContentTitle">
+<div class="row">
+    <div class="col-sm-12">
+        <button class="btn btn-primary" (click)="toggle_full_preview_mode()">
+      {{show_preview_only ? 'SHOW EDITOR' : 'Show FULL PREVIEW'}}
+    </button>
     </div>
-    <ckeditor [(ngModel)]="contentdata.Content" #PageContent="ngModel" name="PageContent" required [config]="ckeConfig" debounce="500">
-    </ckeditor>
-    <div class="form-group mt-4">
-        <div class="row">
-            <div class="col-3 col-md-3 mb-3">
-                <button type="submit" class="btn btn-info">Submit</button>
+    <div class="col-sm-12 col-md-8" [class.hidden]="show_preview_only">
+        <form role="form" #myForm="ngForm" accept-charset="UTF-8" (ngSubmit)="onSubmit()" novalidate style="margin: 30px;">
+            <div class="form-group">
+                <input autofocus autocomplete="none" type="text" name="UserName" placeholder="Enter Title" [(ngModel)]="contentdata.Title" class="form-control" required #PageContentTitle="ngModel" id="PageContentTitle">
             </div>
+            <ckeditor [(ngModel)]="contentdata.Content" #PageContent="ngModel" name="PageContent" required [config]="ckeConfig" debounce="500">
+            </ckeditor>
+            <div class="form-group mt-4">
+                <div class="row">
+                    <div class="col-3 col-md-3 mb-3">
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--PREVIEW AREA FOR THE EDITOR POST-->
+    <div class="col-sm-12" [class.col-md-4]="!show_preview_only">
+        <h6 class="m-0 p-2 pl-0">PREVIEW</h6>
+        <div class="border rouneded p-2">
+            <h3 class="text-muted text-uppercase mb-2">{{contentdata.Title}}</h3>
+            <div [innerHTML]="contentdata.Content"></div>
         </div>
     </div>
-</form>
+</div>
